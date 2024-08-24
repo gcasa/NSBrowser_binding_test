@@ -11,6 +11,7 @@
 		1488DA202C791BB40059D6DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1488DA1F2C791BB40059D6DC /* Assets.xcassets */; };
 		1488DA232C791BB40059D6DC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1488DA222C791BB40059D6DC /* Base */; };
 		1488DA252C791BB40059D6DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488DA242C791BB40059D6DC /* main.m */; };
+		1488DA2E2C796AA10059D6DC /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1488DA2D2C796AA10059D6DC /* TreeNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,8 @@
 		1488DA222C791BB40059D6DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1488DA242C791BB40059D6DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1488DA262C791BB40059D6DC /* NSBrowser_binding_test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NSBrowser_binding_test.entitlements; sourceTree = "<group>"; };
+		1488DA2C2C796AA10059D6DC /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		1488DA2D2C796AA10059D6DC /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 				1488DA212C791BB40059D6DC /* MainMenu.xib */,
 				1488DA242C791BB40059D6DC /* main.m */,
 				1488DA262C791BB40059D6DC /* NSBrowser_binding_test.entitlements */,
+				1488DA2C2C796AA10059D6DC /* TreeNode.h */,
+				1488DA2D2C796AA10059D6DC /* TreeNode.m */,
 			);
 			path = NSBrowser_binding_test;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			files = (
 				1488DA252C791BB40059D6DC /* main.m in Sources */,
 				1488DA1E2C791BB10059D6DC /* AppDelegate.m in Sources */,
+				1488DA2E2C796AA10059D6DC /* TreeNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
