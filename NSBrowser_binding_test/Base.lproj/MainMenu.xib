@@ -696,7 +696,7 @@
                         <rect key="frame" x="20" y="42" width="440" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <connections>
-                            <binding destination="sgy-t3-LQC" name="value" keyPath="arrangedObjects.value" id="k2G-MQ-rkP"/>
+                            <binding destination="sgy-t3-LQC" name="content" keyPath="arrangedObjects" id="Kki-y2-CqJ"/>
                         </connections>
                     </browser>
                 </subviews>
