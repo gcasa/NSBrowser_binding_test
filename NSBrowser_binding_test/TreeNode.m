@@ -33,8 +33,9 @@
 
 - (NSString *) description
 {
-  return [NSString stringWithFormat: @"%@ = <%@, %@, %@>",
-           [super description], _value, _children, (_leaf?@"YES":@"NO")];
+    // return self.value;
+    return [NSString stringWithFormat: @"%@ = <%@, %@, %@>",
+            [super description], _value, _children, (_leaf?@"YES":@"NO")];
 }
 
 @end
