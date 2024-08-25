@@ -31,15 +31,19 @@
     TreeNode *child = [[TreeNode alloc] init];
     child.value = @"Child 0";
     child.leaf = NO;
-    node.children = [NSMutableArray arrayWithObject: child];
-    node.count = [node.children count];
+
+    TreeNode *child1 = [[TreeNode alloc] init];
+    child1.value = @"Child 1";
+    child1.leaf = YES;
+    node.children = [NSMutableArray arrayWithObjects: child, child1, nil];
+    // node.count = [node.children count];
 
     TreeNode *newChild0 = [[TreeNode alloc] init];
     newChild0.value = @"Subchild 0";
     newChild0.leaf = YES;
     child.children = [NSMutableArray arrayWithObject: newChild0];
     child.count = [child.children count];
-    newChild0.count = 0;
+    // newChild0.count = 0;
     
     return array;
 }
