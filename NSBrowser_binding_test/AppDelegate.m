@@ -71,5 +71,17 @@
     return YES;
 }
 
+// Actions...
+- (IBAction) showValue: (id)sender
+{
+    NSArray *selected = [self.browser selectedCells];
+    if ([selected count] > 0)
+    {
+        NSCell *cell = [selected objectAtIndex: 0];
+        id obj = [cell objectValue];
+        
+        NSLog(@"Object value = %@", obj);
+    }
+}
 
 @end
