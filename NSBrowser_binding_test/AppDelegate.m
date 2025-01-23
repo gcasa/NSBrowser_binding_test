@@ -59,6 +59,8 @@
     // self.treeController.arrangedObjects.representedObject.value);
     NSLog(@"objectClassName = %@", [self.controller objectClass]);
     NSLog(@"newObject = %@", [self.controller newObject]);
+    
+    [self.browser setDelegate: self]; // Remove this if we are not testing with a delegate...
 }
 
 
@@ -82,6 +84,131 @@
         
         NSLog(@"Object value = %@", obj);
     }
+}
+
+// Conditional delegate...
+- (NSInteger) browser:(NSBrowser *)browser numberOfChildrenOfItem:(id)item
+{
+    if (item == nil)
+    {
+        return 1;
+    }
+    else if ([item isEqualToString: @"NSObject"])
+    {
+        return 3;
+    }
+    else if ([item isEqualToString: @"NSArray"])
+    {
+        return 1;
+    }
+    else if ([item isEqualToString: @"NSDictionary"])
+    {
+        return 1;
+    }
+    else if ([item isEqualToString: @"NSString"])
+    {
+        return 1;
+    }
+
+    return 0;
+}
+
+- (id)browser:(NSBrowser *)browser
+        child:(NSInteger)index
+       ofItem:(id)item
+{
+    if (item == nil)
+    {
+        return @"NSObject";
+    }
+    else if ([item isEqualToString: @"NSObject"])
+    {
+        if (index == 0)
+        {
+            return @"NSArray";
+        }
+        else if (index == 1)
+        {
+            return @"NSDictionary";
+        }
+        else if (index == 2)
+        {
+            return @"NSString";
+        }
+    }
+    else if ([item isEqualToString: @"NSArray"])
+    {
+        if (index == 0)
+        {
+            return @"NSMutableArray";
+        }
+    }
+    else if ([item isEqualToString: @"NSDictionary"])
+    {
+        if (index == 0)
+        {
+            return @"NSMutableDictionary";
+        }
+    }
+    else if ([item isEqualToString: @"NSString"])
+    {
+        if (index == 0)
+        {
+            return @"NSMutableString";
+        }
+    }
+
+    return nil;
+}
+
+- (BOOL)browser:(NSBrowser *)browser
+     isLeafItem:(id)item
+{
+    if ([item isEqualToString: @"NSObject"]
+        || [item isEqualToString: @"NSDictionary"]
+        || [item isEqualToString: @"NSArray"]
+        || [item isEqualToString: @"NSString"])
+    {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)browser:(NSBrowser *)browser
+ shouldEditItem:(id)item
+{
+    return YES;
+}
+
+- (id)browser:(NSBrowser *)browser
+objectValueForItem:(id)item
+{
+    return item;
+}
+
+- (void)browser:(NSBrowser *)browser
+ setObjectValue:(id)object
+        forItem:(id)item
+{
+    NSLog(@"New Object Value = %@", object);
+}
+
+- (id)rootItemForBrowser:(NSBrowser *)browser
+{
+    return nil;
+}
+
+- (NSViewController *)browser:(NSBrowser *)browser
+previewViewControllerForLeafItem:(id)item
+{
+    return nil;
+}
+
+- (NSViewController *)browser:(NSBrowser *)browser
+  headerViewControllerForItem:(id)item
+{
+    return nil;
 }
 
 @end
