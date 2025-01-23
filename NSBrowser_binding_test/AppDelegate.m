@@ -12,7 +12,9 @@
 
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSTreeController *controller;
+@property (strong) IBOutlet NSTreeController *controller2;
 @property (strong) NSArray *nodes;
+@property (strong) NSArray *nodes2;
 @property (strong) NSMutableArray *selectionIndexPaths;
 
 @property (strong) IBOutlet NSBrowser *browser;
@@ -48,9 +50,38 @@
     return array;
 }
 
+- (NSArray *) buildNodes2
+{
+    TreeNode *node = [[TreeNode alloc] init];
+    node.value = @"RootA";
+    node.leaf = NO;
+    NSArray *array = [NSArray arrayWithObject: node];
+  
+    TreeNode *child = [[TreeNode alloc] init];
+    child.value = @"Child 0A";
+    child.leaf = NO;
+
+    TreeNode *child1 = [[TreeNode alloc] init];
+    child1.value = @"Child 1A";
+    child1.leaf = YES;
+    node.children = [NSMutableArray arrayWithObjects: child, child1, nil];
+    // node.count = [node.children count];
+
+    TreeNode *newChild0 = [[TreeNode alloc] init];
+    newChild0.value = @"Subchild 0A";
+    newChild0.leaf = YES;
+    child.children = [NSMutableArray arrayWithObject: newChild0];
+    child.count = [child.children count];
+    // newChild0.count = 0;
+    
+    return array;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     self.nodes = [self buildNodes];
+    self.nodes2 = [self buildNodes2];
+    
     NSString *cn = [self.controller.arrangedObjects className];
     NSString *sc = NSStringFromClass([[self.controller.arrangedObjects class] superclass]);
     NSLog(@"arrangedObjects = %@, className = %@, superClass = %@",
