@@ -60,7 +60,7 @@
     NSLog(@"objectClassName = %@", [self.controller objectClass]);
     NSLog(@"newObject = %@", [self.controller newObject]);
     
-    [self.browser setDelegate: self]; // Remove this if we are not testing with a delegate...
+    // [self.browser setDelegate: self]; // Remove this if we are not testing with a delegate...
 }
 
 
